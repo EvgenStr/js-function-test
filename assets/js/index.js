@@ -55,8 +55,8 @@
 
 // console.log(eleven, bool, text, stringNum);
 // const func = function (a, b, ...params) {
-  // const result = a+b;
-  // return isNaN(Number(a) + Number(b)) ? null : a + b;
+// const result = a+b;
+// return isNaN(Number(a) + Number(b)) ? null : a + b;
 // };
 
 const num1 = prompt("number 1:");
@@ -67,6 +67,8 @@ console.log(
   compareMax(num1, num2),
   "min value-",
   compareMin(num1, num2),
+  "/n",
+  num1,
   isParity(num1)
 );
 
@@ -95,5 +97,10 @@ function square(a, b, c) {
     return "D < 0, корней нет";
   } else if (D === 0) {
     return "D = 0, есть ровно один корень";
-  } else "D > 0, корней будет два";
+  } else {
+    let arr = [];
+    arr.push((-b + Math.sqrt(D)) / (a * 2));
+    arr.push((-b - Math.sqrt(D)) / (a * 2));
+  }
+  return arr;
 }
