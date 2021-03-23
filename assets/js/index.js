@@ -10,7 +10,7 @@ console.log(
   "min value:",
   compareMin(num1, num2),
   ";",
-  +num1,
+  num1,
   isParity(num1)
 );
 
@@ -18,11 +18,9 @@ console.log("quadratic equation", square(num1, num2, num3));
 
 function writeValues(...params) {
   let length = params.length;
-  // let elements = document.getElementsByClassName("value");
   let wrap = document.getElementById("wrap");
 
   for (let i = 0; i <= length - 1; i++) {
-    // elements[i].innerHTML = `Number ${i + 1} = ${params[i]};`;
     let newElement = document.createElement("p");
     newElement.innerHTML = `Number ${i + 1} = ${params[i]};`;
     wrap.appendChild(newElement);
@@ -60,9 +58,13 @@ function square(a, b, c) {
   return arr;
 }
 
+
 // function writeMaxValue(num) {
 //   document.getElementById("max-value").innerHTML = `Max value: ${num}`;
 // }
+
+// let elements = document.getElementsByClassName("value");
+// elements[i].innerHTML = `Number ${i + 1} = ${params[i]};`;
 
 // function compareMax(a, b) {
 //   const val_a = Number(a);
