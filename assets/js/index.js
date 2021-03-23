@@ -97,10 +97,9 @@ function square(a, b, c) {
     return "D < 0, корней нет";
   } else if (D === 0) {
     return -b / (a * 2);
-  } else {
-    let arr = [];
-    arr.push((-b + Math.sqrt(D)) / (a * 2));
-    arr.push((-b - Math.sqrt(D)) / (a * 2));
   }
+  let arr = [];
+  arr.push((-b + Math.sqrt(D)) / (a * 2));
+  arr.push((-b - Math.sqrt(D)) / (a * 2));
   return arr;
 }
