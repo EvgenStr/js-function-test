@@ -61,6 +61,7 @@
 
 const num1 = prompt("number 1:");
 const num2 = prompt("number 2:");
+const num3 = prompt("number 3:");
 
 console.log(
   "max value -",
@@ -71,8 +72,7 @@ console.log(
   num1,
   isParity(num1)
 );
-
-square(3, 5, 8);
+console.log("quadratic equation", square(num1, num2, num3));
 
 function compareMax(a, b) {
   const val_a = Number(a);
@@ -90,13 +90,15 @@ function isParity(a) {
   return a % 2 === 0 ? "is parity" : "is not parity";
 }
 
+// square(num1, num2, num3);
+
 function square(a, b, c) {
   let D = b ** 2 - 4 * (a * c);
   // console.log(D)
   if (D < 0) {
     return "D < 0, корней нет";
   } else if (D === 0) {
-    return "D = 0, есть ровно один корень";
+    return -b / (a * 2);
   } else {
     let arr = [];
     arr.push((-b + Math.sqrt(D)) / (a * 2));
