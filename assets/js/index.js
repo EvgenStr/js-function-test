@@ -2,12 +2,7 @@ const num1 = prompt("number 1:");
 const num2 = prompt("number 2:");
 const num3 = prompt("number 3:");
 
-function setValues(num1, num2, num3){
-  document.getElementById("num-one").innerHTML = `Number 1 = ${num1};`;
-  document.getElementById("num-two").innerHTML = `Number 2 = ${num2};`;
-  document.getElementById("num-three").innerHTML = `Number 3 = ${num3};`;
-}
-setValues(num1, num2, num3);
+writeValues(num1, num2, num3);
 
 console.log(
   "max value:",
@@ -20,9 +15,18 @@ console.log(
 
 console.log("quadratic equation", square(num1, num2, num3));
 
+function writeValues(...params) {
+  let length = params.length;
+  let elements = document.getElementsByClassName("value");
+  for (let i = 0; i <= length - 1; i++) {
+    elements[i].innerHTML = `Number ${i + 1} = ${params[i]};`;
+  }
+}
+
 function compareMax(a, b) {
   const val_a = Number(a);
   const val_b = Number(b);
+  // writeMaxValue(val_a > val_b ? val_a : val_b);
   return val_a > val_b ? val_a : val_b;
 }
 
@@ -39,16 +43,34 @@ function isParity(a) {
 function square(a, b, c) {
   let D = b ** 2 - 4 * (a * c);
   if (D < 0) {
-    return "D < 0, no root";
+    return null;
   } else if (D === 0) {
-    return -b / (a * 2);
+    let res = -b / (a * 2);
+    return [res, res];
   }
   let arr = [];
-  arr.push((-b + Math.sqrt(D)) / (a * 2));
-  arr.push((-b - Math.sqrt(D)) / (a * 2));
+  arr.push((-b + D ** (1 / 2)) / (a * 2));
+  arr.push((-b - D ** (1 / 2)) / (a * 2));
   return arr;
 }
 
+// function writeMaxValue(num) {
+//   document.getElementById("max-value").innerHTML = `Max value: ${num}`;
+// }
+
+// function compareMax(a, b) {
+//   const val_a = Number(a);
+//   const val_b = Number(b);
+//   writeMaxValue(val_a > val_b ? val_a : val_b);
+//   return val_a > val_b ? val_a : val_b;
+// }
+
+// function writeValues(num1, num2, num3) {
+//   document.getElementById("num-one").innerHTML = `Number 1 = ${num1};`;
+//   document.getElementById("num-two").innerHTML = `Number 2 = ${num2};`;
+//   document.getElementById("num-three").innerHTML = `Number 3 = ${num3};`;
+// }
+// ================================================================
 
 // alert("hello world");
 
