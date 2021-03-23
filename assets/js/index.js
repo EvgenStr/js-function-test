@@ -1,3 +1,55 @@
+const num1 = prompt("number 1:");
+const num2 = prompt("number 2:");
+const num3 = prompt("number 3:");
+
+function setValues(num1, num2, num3){
+  document.getElementById("num-one").innerHTML = `Number 1 = ${num1};`;
+  document.getElementById("num-two").innerHTML = `Number 2 = ${num2};`;
+  document.getElementById("num-three").innerHTML = `Number 3 = ${num3};`;
+}
+setValues(num1, num2, num3);
+
+console.log(
+  "max value:",
+  compareMax(num1, num2),
+  "min value:",
+  compareMin(num1, num2),
+  num1,
+  isParity(num1)
+);
+
+console.log("quadratic equation", square(num1, num2, num3));
+
+function compareMax(a, b) {
+  const val_a = Number(a);
+  const val_b = Number(b);
+  return val_a > val_b ? val_a : val_b;
+}
+
+function compareMin(a, b) {
+  const val_a = Number(a);
+  const val_b = Number(b);
+  return val_a < val_b ? val_a : val_b;
+}
+
+function isParity(a) {
+  return a % 2 === 0 ? " - is parity" : " - is not parity";
+}
+
+function square(a, b, c) {
+  let D = b ** 2 - 4 * (a * c);
+  if (D < 0) {
+    return "D < 0, no root";
+  } else if (D === 0) {
+    return -b / (a * 2);
+  }
+  let arr = [];
+  arr.push((-b + Math.sqrt(D)) / (a * 2));
+  arr.push((-b - Math.sqrt(D)) / (a * 2));
+  return arr;
+}
+
+
 // alert("hello world");
 
 // let hello = "Hello World";
@@ -58,48 +110,3 @@
 // const result = a+b;
 // return isNaN(Number(a) + Number(b)) ? null : a + b;
 // };
-
-const num1 = prompt("number 1:");
-const num2 = prompt("number 2:");
-const num3 = prompt("number 3:");
-
-console.log(
-  "max value -",
-  compareMax(num1, num2),
-  "min value-",
-  compareMin(num1, num2),
-  "/n",
-  num1,
-  isParity(num1)
-);
-
-console.log("quadratic equation", square(num1, num2, num3));
-
-function compareMax(a, b) {
-  const val_a = Number(a);
-  const val_b = Number(b);
-  return val_a > val_b ? val_a : val_b;
-}
-
-function compareMin(a, b) {
-  const val_a = Number(a);
-  const val_b = Number(b);
-  return val_a < val_b ? val_a : val_b;
-}
-
-function isParity(a) {
-  return a % 2 === 0 ? "is parity" : "is not parity";
-}
-
-function square(a, b, c) {
-  let D = b ** 2 - 4 * (a * c);
-  if (D < 0) {
-    return "D < 0, корней нет";
-  } else if (D === 0) {
-    return -b / (a * 2);
-  }
-  let arr = [];
-  arr.push((-b + Math.sqrt(D)) / (a * 2));
-  arr.push((-b - Math.sqrt(D)) / (a * 2));
-  return arr;
-}
