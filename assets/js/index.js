@@ -48,9 +48,8 @@ function quadraticEquation(a, b, c) {
   if (isNaN(a - b - c)) return false;
   if (a === 0) return false;
   let D = b ** 2 - 4 * (a * c);
-  if (D < 0) {
-    return null;
-  } else if (D === 0) {
+  if (D < 0) return null;
+  else if (D === 0) {
     let res = -b / (a * 2);
     return [res, res];
   }
